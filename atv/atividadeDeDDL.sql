@@ -35,3 +35,5 @@ CREATE TABLE produtos (
     preco DECIMAL,
     CHECK (preco > 0)
 );
+
+RENAME TABLE clientes TO clientesAtivos;
