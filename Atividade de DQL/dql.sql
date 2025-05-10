@@ -20,3 +20,37 @@ INSERT INTO vendas (id_venda, cliente, cidade, produto, quantidade, preco_unitar
 (6, 'Bruno', 'Rio de Janeiro', 'Camiseta', 2, 50.00, '2024-05-01');
 
 SELECT * FROM vendas;
+
+SELECT DISTINCT cliente FROM vendas;
+
+SELECT * FROM vendas
+WHERE cidade = 'São Paulo';
+
+SELECT * FROM vendas
+WHERE produto = 'Camiseta'
+ORDER BY data_venda DESC;
+
+SELECT DISTINCT produto, SUM(quantidade), AVG(preco_unitario)
+FROM vendas
+GROUP BY produto;
+
+SELECT DISTINCT produto, SUM(quantidade) AS quantidade FROM vendas
+GROUP BY produto
+HAVING SUM(quantidade) > 3;
+
+SELECT * FROM vendas
+ORDER BY data_venda DESC
+LIMIT 3;
+
+UPDATE vendas
+SET quantidade = 0
+WHERE id_venda IN (1, 3, 5);
+
+SELECT cliente AS `Definir quantidade:` FROM vendas
+WHERE quantidade = 0;
+
+SELECT cliente AS `Nome do Cliente:`, 
+preco_unitario AS `Preço por Unidade` 
+FROM vendas;
+
+SELECT * FROM vendas;
